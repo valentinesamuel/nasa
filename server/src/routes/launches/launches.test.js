@@ -76,10 +76,15 @@ describe('Test POST /launch', () => {
 describe('Test DELETE /launch/:id', () => {
     test('should respond with 404', async () => {
         const response = await request(app)
-            .delete('/launches/107')
+            .delete('/launches/108')
             .expect(404)
         expect(response.body).toStrictEqual({
             error: 'Launch not found',
         })
+    })
+    test('should respond with 200', async () => {
+        const response = await request(app)
+            .delete('/launches/100')
+            .expect(200)
     })
 })

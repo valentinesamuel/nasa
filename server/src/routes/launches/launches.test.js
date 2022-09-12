@@ -14,7 +14,7 @@ describe('Launches API', () => {
     describe('Test GET /launches', () => {
         test('It should respond with 200 success', async () => {
             const response = await request(app)
-                .get('/launches')
+                .get('/v1/launches')
                 .expect('Content-Type', /json/)
                 .expect(200)
         })
@@ -43,7 +43,7 @@ describe('Launches API', () => {
 
         test('It should respond with 201 created', async () => {
             const response = await request(app)
-                .post('/launches')
+                .post('/v1/launches')
                 .send(completeLaunchData)
                 .expect('Content-Type', /json/)
                 .expect(201)
@@ -57,7 +57,7 @@ describe('Launches API', () => {
 
         test('It should catch missing required properties', async () => {
             const response = await request(app)
-                .post('/launches')
+                .post('/v1/launches')
                 .send(launchDataWithoutDate)
                 .expect('Content-Type', /json/)
                 .expect(400)
@@ -70,7 +70,7 @@ describe('Launches API', () => {
         })
         test('It should catch invalid dates', async () => {
             const response = await request(app)
-                .post('/launches')
+                .post('/v1/launches')
                 .send(launchDataWithInvalidDate)
                 .expect('Content-Type', /json/)
                 .expect(400)
@@ -88,7 +88,7 @@ describe('Launches API', () => {
 // describe('Test DELETE /launch/:id', () => {
 //     test('should respond with 404', async () => {
 //         const response = await request(app)
-//             .delete('/launches/108')
+//             .delete('/v1/launches/108')
 //             .expect(404)
 //         expect(response.body).toStrictEqual({
 //             error: 'Launch not found',
@@ -96,7 +96,7 @@ describe('Launches API', () => {
 //     })
 //     test('should respond with 200', async () => {
 //         const response = await request(app)
-//             .delete('/launches/100')
+//             .delete('/v1/launches/100')
 //             .expect(200)
 //     })
 // })

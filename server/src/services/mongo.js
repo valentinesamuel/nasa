@@ -12,7 +12,7 @@ mongoose.connection.on('error', (err) => {
 
 async function mongoConnect() {
     // you  might need to add await later on in production 👇👇
-    mongoose.connect(MONGO_URL)
+ await mongoose.connect(MONGO_URL)
 }
 
 async function mongoDisconnect() {

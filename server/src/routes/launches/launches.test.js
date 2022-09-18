@@ -86,19 +86,3 @@ describe('Launches API', () => {
     })
 
 })
-
-// describe('Test DELETE /launch/:id', () => {
-//     test('should respond with 404', async () => {
-//         const response = await request(app)
-//             .delete('/v1/launches/108')
-//             .expect(404)
-//         expect(response.body).toStrictEqual({
-//             error: 'Launch not found',
-//         })
-//     })
-//     test('should respond with 200', async () => {
-//         const response = await request(app)
-//             .delete('/v1/launches/100')
-//             .expect(200)
-//     })
-// })
